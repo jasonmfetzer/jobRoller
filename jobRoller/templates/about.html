@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style type="text/css">
+		.lobster {
+			font-family: 'Open Sans', sans-serif;
+		}
+		
+
+
+	</style>
+	<title>About</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#"><h1 class='lobster'>IIT Job Prepper</h1></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+				<a class="nav-item nav-link active" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+				<a class="nav-item nav-link" href="{% url 'about' %}">About</a>
+					<a class="nav-item nav-link" href="{% url 'search' %}">Search</a>
+						<a class="nav-item nav-link" href="{%url 'kw_search' %}">Keyword Search </a>
+						<a class="nav-item nav-link" href="{%url 'soupify' %}">Soupify<strong> NEW!</strong></a>
+				<a class="nav-item nav-link" href="{% url 'futures' %}">Futures</a>
+				<!--<a class="nav-item nav-link disabled" href="#">Disabled</a>-->
+			</div>
+		</div>
+	</nav>
+	
+	<div class = 'jumbotron'>
+		<h1>Team Kick Ass.</h1>
+	</div>
+	<div class='container'>
+			<hr>
+			<h3>Members and Responsibilities</h3>
+			<ol>
+			<li>Kaidong Shen</li>
+			<ul>
+				<li>Datbase, Models and Schema Design</li>
+			</ul>
+			<li>Matthew Higbee</li>
+			<ul>
+				<li>Model Design and Front End</li>
+			</ul>
+			<li>Jason Fetzer</li>
+			<ul>
+				<li>Framework, Backend, Deployment</li>
+			</ul>
+
+		</ol>
+
+	</div>
+	<div class='container'>
+		<h2>Goals</h2>
+		<p>Our goals for this project were simple. As IIT continues to add courses, we wanted to be able to reverse engineer a plan of study based on a Job Description that met CS requirements at IIT.  We came up with a simple user story where a user could enter URL from Built In Chicago, and we would scrape the site to query the database and see if there were relevant courses to that technology.  For example, if a site listed AWS, we wanted to display "Cloud Computing."</p>
+		<br>
+		<p>As the project grew, we realized that limiting to that simple functionality already required a database, so we added basic search functionality for keyword. We implemented a Keyword Search and Basic Course Search on our site. We followed a MVC pattern architecture where the models were courses and keywords, views were the controller functions, and the template system actually serves as the UI with a nice template tagging system. </p>
+		<br>
+		<h2>Technologies Used in This Project.</h2>
+		<ul>
+			<li>Python</li>
+			<li>Django</li>
+			<li>BackEnd SQLITE</li>
+			<li>Beautiful Soup</li>
+			<li>django-filter</li>
+		</ul>
+		<h2>Successes</h2>
+		<p>We suceeded in developing our application versus non-functional.  We were able to correctly query database results with filters, and we were able to actually pull back the key technologies from a job link and render them to the page. </p>
+		<br>
+		<h2>Testing</h2>
+		<p>We have minimalist checks in the application, mainly due to time constraints, but we verify the HTTPResponse codes, and have used some conditionals in our functions.  404 Errors will simply render a 'Page Not Found' warning in production.  Unit Tests are a work in progress, as well as implementing TestRunners or Selenium in the long run. </p>
+		<br>
+		<h2>Reusability</h2>
+		<p>We leveraged the Django Framework in this application, and while it is not completely tested, one nice feature of the framework is the reusability of our components.  For instance, in our app, the 'soupify' search, while it is part of our jobView app as a whole, can be reused in other projects.  This is a nice feature, say if we were building something for other area universities to tap into.</p>
+		<br>
+		<h2>Failures</h2>
+		<p>We failed in the fact of separation or abstraction.  We were not able to render the database objects based on keywords.  A user would have to get the keywords and then go to the /kw_search and enter the keyword to see if there are relevant courses.  Functionality is there, but the Mixin did not work properly. Additionally, it was our goal to be able to actually add courses to a dynamic list, so that users could save the data.  This functionality is a work in progress.</p>
+		<br>
+
+	</div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</html>

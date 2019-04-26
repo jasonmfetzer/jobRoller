@@ -10,11 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
-import os
+import os,sys
+#import django
+#django.setup()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -25,8 +27,11 @@ SECRET_KEY = 'km#!!2*jn+pp^(4+#0h3_s@gl6ulct#e8*(9&dwo+#_&_h45*$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+#LOGIN_URL = '//'
+
 ALLOWED_HOSTS = []
 
+IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 # Application definition
 
@@ -37,6 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'jobView',
+    'import_export',
+    'django_filters',
+    'widget_tweaks'
 ]
 
 MIDDLEWARE = [
@@ -54,7 +63,7 @@ ROOT_URLCONF = 'jobRoller.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_DIR,],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
